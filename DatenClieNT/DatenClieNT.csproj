@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{046B4C4D-953D-4A98-B689-70D1320C9ED2}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DatenClieNT</RootNamespace>
+    <AssemblyName>DatenClieNT_TIA</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>725D8C22FD237E117DFC7377726648EC88F12EAE</ManifestCertificateThumbprint>
+    <ManifestKeyFile>DatenClient.NET_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <TargetZone>LocalIntranet</TargetZone>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <SignManifests>false</SignManifests>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <ApplicationIcon>DCTIA48.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>C:\CG_DOWNLOAD\Setup\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Opc.Ua.Client">
+      <HintPath>.\Opc.Ua.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Opc.Ua.Core">
+      <HintPath>.\Opc.Ua.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountInfo.cs" />
+    <Compile Include="Alarming.cs" />
+    <Compile Include="Auftrag.cs" />
+    <Compile Include="DataAcknoledgeStruct.cs" />
+    <Compile Include="DatabaseConnectionProvider.cs" />
+    <Compile Include="ConfigManager.cs" />
+    <Compile Include="AlarmingTIA.cs" />
+    <Compile Include="Daten.cs" />
+    <Compile Include="DatenTIA.cs" />
+    <Compile Include="EndianConversion.cs" />
+    <Compile Include="enums.cs" />
+    <Compile Include="EvtResume.cs" />
+    <Compile Include="EvtSuspend.cs" />
+    <Compile Include="EvtTerminate.cs" />
+    <Compile Include="ExecuteScript.cs" />
+    <Compile Include="PseudoScript.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SpsComunicationBase.cs" />
+    <Compile Include="SpsReturnCode.cs" />
+    <Compile Include="SqlRealtime.cs" />
+    <Compile Include="SqlRealtimeSimpleExecute.cs" />
+    <Compile Include="SqlRealtimeExtendetExecute.cs" />
+    <Compile Include="SqlRealtimeExtendetQuery.cs" />
+    <Compile Include="SqlServerConnectionProvider.cs" />
+    <Compile Include="SqlRealtimeSimpleQuery.cs" />
+    <Compile Include="StoerBerNurAnzeige.cs" />
+    <Compile Include="Telegram.cs" />
+    <Compile Include="DatenClient.cs" />
+    <Compile Include="DatenClientTIA.cs" />
+    <Compile Include="DbTools.cs" />
+    <Compile Include="Evt.cs" />
+    <Compile Include="EvtTelegram.cs" />
+    <Compile Include="EvtTimer.cs" />
+    <Compile Include="LogEintrag.cs" />
+    <Compile Include="SpsCommunicationOPC.cs" />
+    <Compile Include="LogConsole.cs" />
+    <Compile Include="LogFile.cs" />
+    <Compile Include="LogManager.cs" />
+    <Compile Include="LogZentrale.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service.Designer.cs">
+      <DependentUpon>Service.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceInstaller.cs" />
+    <Compile Include="StopUhr.cs" />
+    <Compile Include="TelegramA.cs" />
+    <Compile Include="TelegramD.cs" />
+    <Compile Include="TelegramE.cs" />
+    <Compile Include="TelegramF.cs" />
+    <Compile Include="TelegramM.cs" />
+    <Compile Include="TelegramManager.cs" />
+    <Compile Include="TelegramManagerTIA.cs" />
+    <Compile Include="TelegramS.cs" />
+    <Compile Include="TelegramT.cs" />
+    <Compile Include="TelegramU.cs" />
+    <Compile Include="TelegramW.cs" />
+    <Compile Include="TheDC.cs" />
+    <Compile Include="AssemblyInfoWrapper.cs" />
+    <Compile Include="TimerManager.cs" />
+    <Compile Include="Tools.cs" />
+    <Compile Include="ToolsSPS.cs" />
+    <Compile Include="AuftragsDetail.cs" />
+    <Compile Include="UAClientHelperAPI.cs" />
+    <Compile Include="Watchdog.cs" />
+    <Compile Include="WorkerThreadWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DCTIA48.ico" />
+    <Content Include="Iropa4848.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>C:\Programme\Iropa\VersionIncrementor.exe
+</PostBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>
