@@ -27,6 +27,7 @@ namespace DatenClieNT
       {
          string currentUser = "undef.";
 
+
          try
          {
             Process process = System.Diagnostics.Process.GetCurrentProcess();
