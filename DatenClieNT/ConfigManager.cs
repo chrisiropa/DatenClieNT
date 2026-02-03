@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Reflection;
 using System.IO;
 using Microsoft.Win32;
+using System.Linq;
 
 namespace DatenClieNT
 {
@@ -18,7 +19,8 @@ namespace DatenClieNT
       private string mainConnectionString;
       private Dictionary<string, string> specificConnectionStrings = new Dictionary<string, string>();
       private string executionDirectory;
-		//private Boolean noCycleRefresh = false;
+		private int licenseFailedCounter = 0;
+      private int maxLicenseFailed = 3;
       
       public static int FirstTimeout = 4500;
       public static int SecondTimeout = 4000;
@@ -391,19 +393,9 @@ namespace DatenClieNT
                            LogManager.GetSingleton().ZLog("CD25B", ELF.ERROR, "Error in Parameter.Refresh() -> {0}", e0.Message);
                         }
                      }
-
-                     /*
-                     //Logging nicht unbedingt nötig !
-                     LogManager.GetSingleton().ZLog("CD25C", ELF.INFO, "PARAMETER START ----------------------------------------");
-
-                     foreach (string key in parameters.Keys)
-                     {
-                        LogManager.GetSingleton().ZLog("CD25D", ELF.INFO, "   {0}={1}", key, parameters[key]);
-                     }
-
-                     LogManager.GetSingleton().ZLog("CD25E", ELF.INFO, "PARAMETER ENDE -----------------------------------------");
-                     */
                   }
+
+                  
                }
 
                stopUhr.Stop();
@@ -418,6 +410,21 @@ namespace DatenClieNT
                LogManager.GetSingleton().ZLog("C0061", ELF.ERROR, "ConfigManager.Refresh (1) konnte nicht ausgeführt werden. Möglicherweise ist die Datenbank nicht mehr erreichbar. Es wird mit der bestehenden Konfiguration weitergemacht. -> {0}", e.Message);
                //Refresh nicht so wichtig.
                //NICHT neu aufsetzen deswegen
+            }
+         }
+
+         VerifyLicense vm = new VerifyLicense();
+         if(!vm.Check("MAC") || !vm.Check("EXPIRE"))
+         {
+            //Programm wurde manipuliert !
+            licenseFailedCounter++;
+
+            LogManager.GetSingleton().ZLog("C0270", ELF.ERROR, "DatenClieNT-Programm MAC Adresse nicht lizensiert oder Datum abgelaufen ! Zum {0}. Mal festgestellt", licenseFailedCounter);
+            LogManager.GetSingleton().ZLog("C0270", ELF.ERROR, "Beim {0}. Mal wird das Programm beendet.", maxLicenseFailed);
+
+            if(licenseFailedCounter >= maxLicenseFailed) 
+            {
+               System.Environment.Exit(0);
             }
          }
       }

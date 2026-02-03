@@ -117,6 +117,7 @@
     <Compile Include="AccountInfo.cs" />
     <Compile Include="Alarming.cs" />
     <Compile Include="Auftrag.cs" />
+    <Compile Include="CryptoHelper.cs" />
     <Compile Include="DataAcknoledgeStruct.cs" />
     <Compile Include="DatabaseConnectionProvider.cs" />
     <Compile Include="ConfigManager.cs" />
@@ -129,12 +130,16 @@
     <Compile Include="EvtSuspend.cs" />
     <Compile Include="EvtTerminate.cs" />
     <Compile Include="ExecuteScript.cs" />
+    <Compile Include="MachineHelpers.cs" />
     <Compile Include="PseudoScript.cs" />
     <Compile Include="Resource1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
+    <Compile Include="SelfVerifier.cs" />
+    <Compile Include="SimpleSqlExecute.cs" />
+    <Compile Include="SimplyCoder.cs" />
     <Compile Include="SpsComunicationBase.cs" />
     <Compile Include="SpsReturnCode.cs" />
     <Compile Include="SqlRealtime.cs" />
@@ -185,6 +190,7 @@
     <Compile Include="ToolsSPS.cs" />
     <Compile Include="AuftragsDetail.cs" />
     <Compile Include="UAClientHelperAPI.cs" />
+    <Compile Include="VerifyLicense.cs" />
     <Compile Include="Watchdog.cs" />
     <Compile Include="WorkerThreadWrapper.cs" />
   </ItemGroup>
@@ -246,6 +252,9 @@
   -->
   <PropertyGroup>
     <PostBuildEvent>C:\Programme\Iropa\VersionIncrementor.exe
+Copy DatenClieNT_TIA.exe DatenClieNT_TIA.bin
+cd C:\Projekte\IROPA\Datenclient TIA\DatenClieNT\bin\Debug
+MCP sign DatenClieNT_TIA.exe
 </PostBuildEvent>
     <PreBuildEvent>
     </PreBuildEvent>

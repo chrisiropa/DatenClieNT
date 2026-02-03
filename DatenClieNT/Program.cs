@@ -7,14 +7,12 @@ using System.Resources;
 using System.Reflection;
 using System.Threading;
 using System.ServiceProcess;
-using System.Configuration;
-using System.Runtime.InteropServices;
-using Microsoft.VisualBasic;
 using Microsoft.Win32;
 
 
 namespace DatenClieNT
 {
+   
    class Program
    {
       private static bool runAsService = true;

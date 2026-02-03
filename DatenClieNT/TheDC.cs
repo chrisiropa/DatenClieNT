@@ -65,11 +65,35 @@ namespace DatenClieNT
       
       public Boolean Start()
       {
+         
+
+
+
          LogManager.GetSingleton().Init();
+
+
+         
+
+
          
          ConfigManager.Init();
 
 			
+
+         SelfVerifier sv = new SelfVerifier();
+         if(sv.VerifySelf() != FailReason.OK)
+         {
+            //Programm wurde manipuliert !
+            LogManager.GetSingleton().ZLog("C0270", ELF.ERROR, "DatenClieNT-Programm wurde manipuliert !");
+            return false;
+         }
+
+         LogManager.GetSingleton().ZLog("C0270", ELF.INFO, "DatenClieNT erfolgreich gegen Manipulation geprüft !");
+
+
+
+         
+
          globalTimerManager.Start();
 
 
@@ -80,6 +104,12 @@ namespace DatenClieNT
 
 
          LogManager.GetSingleton().Start(ConfigManager.GetSingleton().MainConnectionString);
+
+
+
+         
+         
+
 
 
 
@@ -115,7 +145,11 @@ namespace DatenClieNT
 
          InitAndStartDatenclients(ConfigManager.Database);
 
-      
+         
+
+         
+
+
          return true;
       }
 
